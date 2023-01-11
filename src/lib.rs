@@ -146,6 +146,6 @@ impl RenderArea2D {
     }
     /// Center the camera on (x, y)
     pub fn center_camera(&mut self, x: f32, y: f32) {
-        self.camera.target = vec2(x + 16.0, y + 16.0);
+        self.camera.target = vec2(x, y);
     }
 }
