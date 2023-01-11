@@ -124,8 +124,8 @@ impl RenderArea2D {
         let (mx, my) = mouse_position();
         let (x_off, y_off) = self.screen_offset();
         (
-            (mx - x_off) / f32::from(self.scale),
-            (my - y_off) / f32::from(self.scale),
+            ((mx - x_off) / f32::from(self.scale)).floor(),
+            ((my - y_off) / f32::from(self.scale)).floor(),
         )
     }
     /// Gives mouse position translated to the render area coordinates, including camera offset
