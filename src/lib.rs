@@ -61,7 +61,7 @@ impl RenderArea2D {
     pub fn new(width: u16, height: u16) -> Self {
         let rt = render_target(width.into(), height.into());
         let cam = Camera2D {
-            render_target: Some(rt),
+            render_target: Some(rt.clone()),
             zoom: vec2(2. / f32::from(width), 2. / f32::from(height)),
             target: target(width, height),
             ..Default::default()
@@ -117,7 +117,7 @@ impl RenderArea2D {
             ..Default::default()
         };
         let (x_off, y_off) = self.screen_offset();
-        draw_texture_ex(self.render_target.texture, x_off, y_off, WHITE, params);
+        draw_texture_ex(&self.render_target.texture, x_off, y_off, WHITE, params);
     }
     /// Gives mouse position translated to the render area coordinates
     pub fn mouse_position(&self) -> (f32, f32) {
